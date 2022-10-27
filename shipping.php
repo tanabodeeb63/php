@@ -8,19 +8,19 @@
 ?>   
 
 <?php
-    $query = "select * from trackno order by Trackingno desc limit 1";
+    $query = "select * from trackno order by Trackingno desc";
     $result = mysqli_query($conn,$query);
     $row = mysqli_fetch_array($result);
     $lastTrackingno = $row['Trackingno'];
-    if($lastTrackingno == " ")
+    if(empty($lastTrackingno))
     {
-        $Trackno = "CHS1";
+        $Trackno = "E-0000001";
     }
     else
     {
-        $Trackno = substr($lastTrackingno,3);
-        $Trackno = intval($Trackno);
-        $Trackno = "CHS" . ($Trackno + 1);
+        $idd = str_replace("E-", "", $lastTrackingno);
+        $id = str_pad($idd + 1, 7, 0, STR_PAD_LEFT);
+        $Trackno = "E-" . $id;
     }
 ?>   
 
@@ -76,6 +76,7 @@
             </ul>
         </div>
     </header> 
+    
 <div class="page" style="margin-top: 25%;position: absolute;line-height: 50px">
 <form action="<?php echo($_SERVER["PHP_SELF"]);?>" method="post" class="form-floating1">
 <div class="container1" style="line-height: 70px">     
@@ -103,7 +104,7 @@
 <input type="text" class="form-control" name="Rphoneno" id="Rphoneno"placeholder="Phone number" style="font-size: 22px;width:150%;height:40px">
 <p></p>
 <input type="submit" value="SAVE" class="btn btn-success" style="font-size:1.2rem;width:40%;background-color:#333; color:white; border:none; border-radius: 4px; border-width: 1px;cursor: pointer;">
-<input type="button" value="PRINT" class="btn btn-print" style="font-size:1.2rem;width:40%;background-color:#333; color:white; border:none; border-radius: 4px; border-width: 1px;cursor: pointer;">
+<input type="submit" value="CREATE PDF" class="btn btn-print" style="font-size:1.2rem;width:40%;background-color:#333; color:white; border:none; border-radius: 4px; border-width: 1px;cursor: pointer;">
 </form>
 </div>
 

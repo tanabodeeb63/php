@@ -19,6 +19,13 @@
             </ul>
         </div>
     </header>
+    <div class="container">
+        <form>
+            <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            <input type="text" placeholder="กรุณากรอกเลขบัตรประชาชน13หลัก">
+            <button type="submit">ค้นหาประวัติการจัดส่ง</button>
+        </form>
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
