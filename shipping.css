@@ -85,4 +85,5 @@ header ul li a:hover::before
     box-shadow: 0 15px 15px rgba(0,0,0,0.05);
     outline: none;
     border: none;
+    border-radius: 15px 15px;
 }

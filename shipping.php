@@ -36,6 +36,7 @@
         $Rname = $_POST['Rname'];
         $Raddress = $_POST['Raddress'];
         $Rphoneno = $_POST['Rphoneno'];
+        $status = $_POST['status'];
 
         if(!$conn)
         {
@@ -43,7 +44,7 @@
         }
         else
         {
-            $sql = "insert into trackno(Trackingno,Sname,cid,Saddress,Sphoneno,date,Rname,Raddress,Rphoneno)VALUES('$Trackingno','$Sname','$cid','$Saddress','$Sphoneno','$date','$Rname','$Raddress','$Rphoneno')";
+            $sql = "insert into trackno(Trackingno,Sname,cid,Saddress,Sphoneno,date,Rname,Raddress,Rphoneno,status)VALUES('$Trackingno','$Sname','$cid','$Saddress','$Sphoneno','$date','$Rname','$Raddress','$Rphoneno','$status')";
             if(mysqli_query($conn,$sql))
             {
                 echo "Record ADD";
@@ -78,7 +79,7 @@
         </div>
     </header> 
     
-<div class="page" style="margin-top: 25%;position: absolute;line-height: 50px">
+<div class="page" style="margin-top: 20%;position: absolute;line-height: 50px">
 <form action="<?php echo($_SERVER["PHP_SELF"]);?>" method="post" class="form-floating1">
 <div class="container1" style="line-height: 70px">     
 <h4><p>ข้อมูลผู้จัดส่ง</p></h4>
@@ -93,8 +94,10 @@
     <p></p>
     <input type="text" class="form-control" name="Sphoneno" id="Sphoneno" placeholder="Phone number" style="font-size: 22px;width:150%;height:40px">
     <p></p>
+    <input type="hidden" class="form-control" name="status" value="พัสดุถูกนำเข้าสู่ระบบ" style="font-size: 22px;width:150%;height:40px">
     <input type="date" name ="date" id="date" value="0000-00-00" style="font-size: 1.2rem; cursor: pointer;">
     <p></p>
+
 <div class="container2" style="line-height: 100px">
     <h4><p>ข้อมูลผู้รับ</p></h4>     
 </div>
@@ -105,7 +108,6 @@
 <input type="text" class="form-control" name="Rphoneno" id="Rphoneno"placeholder="Phone number" style="font-size: 22px;width:150%;height:40px">
 <p></p>
 <input type="submit" value="SAVE" class="btn btn-success" style="font-size:1.2rem;width:40%;background-color:#333; color:white; border:none; border-radius: 4px; border-width: 1px;cursor: pointer;">
-<input type="submit" value="CREATE PDF" class="btn btn-print" style="font-size:1.2rem;width:40%;background-color:#333; color:white; border:none; border-radius: 4px; border-width: 1px;cursor: pointer;">
 </form>
 </div>
 
