@@ -65,6 +65,7 @@
     <link rel = "icon" href ="Box Delivery Services.png" type="image/x-icon">
     <title>Shipping | จัดส่งพัสดุ</title>
 </head>
+<body>
     <header>
         <a href="index.php" class="logo">KPT Express</a>
         <div class="group">
